@@ -2,7 +2,8 @@
 <html lang="hu">
 
 <head>
-  <meta charset=UTF-8>
+  <title>Trolibuszok</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="troli.css">
@@ -10,7 +11,6 @@
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="troli.js"></script>
-  <title>Trolibuszok</title>
   <style>
   /* Make the image fully responsive */
   .carousel-inner img {
@@ -41,7 +41,10 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#felsovezetes">Felsővezetés</a>
-      </li>     
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#viszonylatok">Budapesti viszonylatok</a>
+      </li>      
     </ul>
   </div>
 </nav>
@@ -84,7 +87,7 @@
   <div class="row">
     <div class="col-lg-12">
 	  <h1 class="display-2">Trolibusz</h1>
-      <p id="def">A trolibusz olyan közúti tömegközlekedési elektromos hajtású, gumikerekes jármű, amelyet áramszedők kapcsolnak a felsővezetékhez, amiből a mozgáshoz szükséges energiát kapja. Funkciója általában a közforgalmú autóbuszéhoz hasonló. A trolibusz közúti jármű; a KRESZ definíciója szerint „elektromos felsővezetékhez kötött gépkocsi”.</p>     
+      <p id="def">A trolibusz olyan közúti tömegközlekedési elektromos hajtású, gumikerekes jármű, amelyet áramszedők kapcsolnak a felsővezetékhez, amiből a mozgáshoz szükséges energiát kapja. Funkciója általában a közforgalmú autóbuszéhoz hasonló. A trolibusz közúti jármű; a <a href="http://net.jogtar.hu/kresz" target="_blank">KRESZ</a> definíciója szerint „elektromos felsővezetékhez kötött gépkocsi”.</p>     
     </div>
   </div>
   <div class="row">
@@ -98,10 +101,13 @@
     </div>
    </div>
    <div class="row">
-    <div class="col-lg-12" id="felepites">
+    <div class="col-lg-8" id="felepites">
       <h2 class="display-4">Felépítés</h2> 
-      <p>1980-ban gyártásba került csehszlovák Škoda 14Tr trolibusz rajza, vastag betűvel kiemelve a trolibusz-specifikus elemek.</p>
-      <ul>
+      <p>1980-ban gyártásba került csehszlovák Škoda 14Tr trolibusz rajza, vastag betűvel kiemelve a trolibusz-specifikus elemek.</p>       
+      <img src="jarmu.png" class="img-thumbnail" alt="Trolibusz felépítése" title="Trolibusz felépítése"/>
+    </div>
+    <div class="col-lg-4" id="magyarazat">
+      <ol>
         <li>Felsővezeték</li>
         <li>Viszonylatjelző tábla</li>
         <li>Visszapillantó tükör</li>
@@ -118,9 +124,8 @@
         <li>Rögzítőlíra</li>
         <li>Elektromos berendezés a tetőn</li>
         <li>Pályaszám</li>
-      </ul>
-      <img src="jarmu.png" class="img-thumbnail" alt="Trolibusz felépítése" title="Trolibusz felépítése"/>      
-     </div>
+      </ol>
+    </div>
     </div>
     <div class="row">
     <div class="col-lg-6" id="felsovezetes">
@@ -132,10 +137,10 @@
       <h2 class="display-4">Budapesti viszonylatok</h2> 
       <p>Budapesten az első trolibuszjárat 1933. december 16-án indult el Óbudán, a Vörösvári út és az Óbudai temető között 7-es jelzéssel. A pesti hálózat első, Király utcai vonalát Sztálin születésének 70. évfordulóján, 1949. december 21-én nyitották meg. A trolibuszjárat ennek tiszteletére a 70-es jelzést kapta. Ezt követően az 1950-es években szinte minden évben indultak új járatok. Napjainkban a vonalhálózat 13 alap- és 3 betétjáratból áll, amit a Budapesti Közlekedési Központ megrendelésére a Budapesti Közlekedési Zrt. üzemeltet. A hálózat hossaz 75,5km, a vonalak száma 16, összesen 172 megállóval.</p>
       <p>Az alábbi űrlapon megnézheti a kétszámjegyű járatszámok viszonylatait:</p>
-      <form method="post">
+      <form method="post" id="jaratviszonylatok">
       <p>Járatszám: 
       <br>
-      <select onclick="vegallomasKiiras(this.value)">       
+      <select onchange="vegallomasKiiras(this.value)" id="jaratSzam">       
       <script>
         vegallomasNevek.forEach(jaratKiiras);
       </script>
@@ -144,9 +149,9 @@
       <p>A járat végállomásai:<br>
       <b id="vegallomasok">
         <script>vegallomasKiiras("70");</script>
-      </b>
+      </b>      
       </p>
-      </form>
+    </form>
     </div>
   </div>
   <button onclick="fel()" id="felGomb" title="Az oldal tetejére">Fel</button> 
